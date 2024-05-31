@@ -1,0 +1,17 @@
+<?xml version ="1.0" encoding ="utf-8"?><!--  Learn More about how to use App Actions: https://developer.android.com/guide/actions/index.html -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="53.65dp"
+    android:height="53.65dp"
+    android:viewportWidth="53.65"
+    android:viewportHeight="53.65">
+    <group>
+        <clip-path android:pathData="M53.6465 26.8232C53.6465 41.6373 41.6373 53.6465 26.8232 53.6465C12.0092 53.6465 0 41.6373 0 26.8232C0 12.0092 12.0092 0 26.8232 0C41.6373 0 53.6465 12.0092 53.6465 26.8232Z" />
+        <path
+            android:fillColor="#57B094"
+            android:pathData="M0 0V53.6465H53.6465V0" />
+        <path
+            android:pathData="M53.6465 26.8232C53.6465 41.6373 41.6373 53.6465 26.8232 53.6465C12.0092 53.6465 0 41.6373 0 26.8232C0 12.0092 12.0092 0 26.8232 0C41.6373 0 53.6465 12.0092 53.6465 26.8232Z"
+            android:strokeWidth="4.95"
+            android:strokeColor="#4DFFFFFF" />
+    </group>
+</vector>
