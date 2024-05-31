@@ -41,3 +41,12 @@
         val lottoNumbers = generateLottoNumbers()
         println("lotto winner: $lottoNumbers")
         ```
+## 24.05.21
+![2024-05-31 18;37;18](https://github.com/chihyeonwon/Random_Lotto/assets/58906858/c8932da2-0d78-4a59-931a-db15e88b84ba)
+```
+레이아웃 : LinearLayout horizontal textView 4개 각각 백그라운드 지정, gravity center
+generateRandomNumbers 메서드에서 난수 생성해서 Set 데이터 리스트에 담는다.
+
+알고리즘 : sort() Set 리스트의 데이터들을 오름차순으로 정렬한다.
+Set 중복된 번호는 생성되면 안된다.
+```
