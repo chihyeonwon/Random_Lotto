@@ -1,4 +1,10 @@
-⚛🔅**실습 목표 :** 빨간 테두리 박스 안의 UI 구성 + Button
+⚛🔅**실습 목표 :** 빨간 테두리 박스 안의 UI 구성 + Button 
+- 웹서버와의 통신 방식인 REST API의 기본 개념과 원리를 이해할 수 있다.     
+- Retrofit을 사용하여 REST API를 호출하고, Gson을 통해 JSON 데이터를 처리하는 방법을 알 수 있다.    
+- JSON 데이터 포맷의 구조를 파악하고, 이를 어떻게 활용하는지 알 수 있다.    
+- 실제 로또 정보를 웹서버에서 받아와 안드로이드 앱에 연동시키는 과정을 직접 구현할 수 있다.
+
+  
 ## 결과물 레이아웃 
 ![image](https://github.com/chihyeonwon/Random_Lotto/assets/58906858/cfb4ad55-f1bf-4f72-8060-5d6bc8e92a7e)
 
