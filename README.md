@@ -170,3 +170,52 @@ CoroutineScope(Dispatchers.IO).launch {
 - 서버에서 받아온 정보는 JSON 형식이라 안드로이드는 알아들을 수가 없어. 그걸 해석해 주는 친구가 바로?!!! Gson이지
 
 ![image](https://github.com/chihyeonwon/Random_Lotto/assets/58906858/43ff826d-28fd-4d48-8b26-d7527f86197e)
+
+## **03.** JSON, 데이터의 `비밀 코드` 해독하기
+
+- **Json이란?**
+    - JSON (JavaScript Object Notation)은 데이터를 교환하기 위한 경량의 텍스트 기반 포맷
+    - 사람이 읽고 쓰기 쉬우며, 기계가 파싱하고 생성하기도 쉬운 구조
+    - 널리 사용되는 데이터 포맷 중 하나로, 웹 서비스와 모바일 애플리케이션 간의 데이터 전송에 특히 많이 사용됨
+    - 특징
+        - **경량:** 데이터를 간결하게 표현할 수 있어요.
+        - **언어 독립적:** 다양한 프로그래밍 언어에서 사용할 수 있어요.
+        - **이해하기 쉬움:** 사람이 읽고 이해하기 쉬워요.
+    - 구조
+        - **객체 (Object):** 이름-값 쌍의 모음. 객체는 중괄호 **`{}`**로 둘러싸여 있으며, 각 이름은 문자열이고 값은 다양한 타입이 될 수 있음
+```kotlin    
+{
+    "name": "John Doe",
+    "age": 30,
+    "isStudent": false
+}
+```
+배열 (Array): 값의 순서화된 모음. 배열은 대괄호 []로 둘러싸여 있으며, 배열 내의 값들은 어떤 타입이든 될 수 있음
+```kotlin
+[
+    "Apple",
+    "Banana",
+    "Cherry"
+]
+```
+
+- **Gson이란?**
+    - Google에서 제공하는 Java 라이브러리
+    - JSON 데이터를 자바 객체로 변환하거나, 자바 객체를 JSON으로 변환하는 데 사용
+    - 이 과정을 각각 '역직렬화(Deserialization)' 및 '직렬화(Serialization)'라고 함
+    - **JSON 파싱:**  Gson 라이브러리를 사용하여 JSON 문자열을 Kotlin 객체(data class)로 변환
+    - **@SerializedName 어노테이션 :** Kotlin 필드와 JSON 키 이름이 다를 경우 매핑
+```kotlin
+data class Person(
+    @SerializedName("person_name")
+    val personName: String
+)
+```
+
+- **Kotlin data class file from Json 사용법**
+    - 이 플러그인을 통해 Json data를 쉽게 kotlin data class로 변환 가능
+```xml
+로또 URL(브라우저 주소창에 넣어 보세요)
+https://www.dhlottery.co.kr/common.do?method=getLottoNumber&drwNo=1010
+```
+
