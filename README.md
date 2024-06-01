@@ -105,3 +105,68 @@ Set 중복된 번호는 생성되면 안된다.
         1. **간결한 코드**: 인터페이스 기반의 선언적 방식을 사용하여 API를 정의해서 복잡한 네트워크 작업을 간단한 메서드 호출로 변환 가능
         2. **데이터 변환**: JSON, XML 등 다양한 데이터 형식을 자동으로 객체로 변환해 줌
         3. **유연성**: 다양한 커스터마이징 옵션과 함께 사용할 수 있는 추가 라이브러리들이 많음
+### ☑️ Retrofit 사용 준비물
+
+1. **Gradle 의존성 추가:**
+    - 프로젝트의 **`build.gradle`** 파일에 Retrofit 및 JSON 파싱을 위한 컨버터 라이브러리(Gson, Moshi 등)를 추가함
+```kotlin   
+// Retrofit
+implementation("com.squareup.retrofit2:retrofit:2.9.0")
+// Gson Converter
+implementation("com.squareup.retrofit2:converter-gson:2.9.0")  
+ ```
+
+2. **인터넷 권한 설정:**
+    - **`AndroidManifest.xml`** 파일에 인터넷 사용 권한을 추가함.
+```kotlin
+<uses-permission android:name="android.permission.INTERNET" />    
+```
+
+3. **API 인터페이스 정의:**
+    - Retrofit으로 통신할 웹 API의 엔드 포인트에 해당하는 메서드를 HTTP 요청 방식과 URL를 어노테이션으로 명시하여 정의함.
+```kotlin  
+interface WeatherService {
+    @GET("data/2.5/weather")
+    suspend fun getWeather(@Query("q") city: String): WeatherResponse
+}
+```
+
+4. **Retrofit 인스턴스 생성:**
+    - Retrofit 빌더를 활용하여 기본 URL, 컨버터 팩토리 등을 설정하여 Retrofit 인스턴스를 생성함.
+  
+```kotlin
+val retrofit = Retrofit.Builder()
+    .baseUrl("https://api.openweathermap.org/")
+    .addConverterFactory(GsonConverterFactory.create())
+    .build()
+```
+
+5. **API 호출 및 응답 처리:**
+    - 정의한 API 인터페이스를 활용하여 네트워크 요청을 수행하고, 콜백이나 코루틴을 사용하여 응답을 처리함.
+  
+```kotlin
+interface WeatherService  {
+    @GET("data/2.5/weather")
+    suspend fun getWeather(@Query("q") city: String): WeatherResponse
+}
+
+val retrofit = Retrofit.Builder()
+    .baseUrl("https://api.openweathermap.org/")
+    .addConverterFactory(GsonConverterFactory.create())
+    .build()
+
+val api = retrofit.create(WeatherService  ::class.java)
+
+// API 호출 및 응답 처리
+CoroutineScope(Dispatchers.IO).launch {
+    val response = api.getWeather("Seoul")
+    withContext(Dispatchers.Main) {
+        // UI 업데이트
+    }
+}
+```
+### ⁉️  Retrofit 준비물에 Gson이라는 Converter가 추가되던데 이건 뭐야?
+
+- 서버에서 받아온 정보는 JSON 형식이라 안드로이드는 알아들을 수가 없어. 그걸 해석해 주는 친구가 바로?!!! Gson이지
+
+![image](https://github.com/chihyeonwon/Random_Lotto/assets/58906858/43ff826d-28fd-4d48-8b26-d7527f86197e)
