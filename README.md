@@ -93,9 +93,9 @@ Set 중복된 번호는 생성되면 안된다.
             - JSON, XML, plain text, HTML, 또는 특정 약속된 형식 등
             - 안드로이드 앱 개발에서는 JSON을 많이 사용함
          
-![image](https://github.com/chihyeonwon/Random_Lotto/assets/58906858/a744e7fd-ebdc-4157-8ee2-cd29318f9f44)
-- **Retrofit이란?** 
-![image](https://github.com/chihyeonwon/Random_Lotto/assets/58906858/c00f7e20-0957-47ae-89f7-d93f0d9d97db)
+![image](https://github.com/chihyeonwon/Random_Lotto/assets/58906858/a744e7fd-ebdc-4157-8ee2-cd29318f9f44)     
+- **Retrofit이란?**     
+![image](https://github.com/chihyeonwon/Random_Lotto/assets/58906858/c00f7e20-0957-47ae-89f7-d93f0d9d97db)    
   
     - 안드로이드 및 자바 애플리케이션을 위한 인기 있는 HTTP 클라이언트 라이브러리
     - REST API를 쉽게 사용할 수 있도록 도와줌
