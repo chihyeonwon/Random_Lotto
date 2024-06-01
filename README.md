@@ -218,4 +218,96 @@ data class Person(
 로또 URL(브라우저 주소창에 넣어 보세요)
 https://www.dhlottery.co.kr/common.do?method=getLottoNumber&drwNo=1010
 ```
+1. File > Setting > Plugins > JSON To Kotlin Class > Install > OK 선택    
+![image](https://github.com/chihyeonwon/Random_Lotto/assets/58906858/af5f46e7-667d-4654-a030-0d029900d98b)
+2. 원하는 folder 선택 후 File > New > Kotlin data class File from JSON 선택     
+![image](https://github.com/chihyeonwon/Random_Lotto/assets/58906858/2ddb302e-b0d5-4f27-a5be-cde0c5c5a429)
+3. JSON 정보 붙여 넣기        
+![image](https://github.com/chihyeonwon/Random_Lotto/assets/58906858/d5c378f2-548b-404b-9a95-346a89adcac4)
+4. Class Name 입력 후 Generate 선택     
+5. 자동으로 생성된 data class 확인
+
+## 04. 당첨 번호를 찾아서: 실제 로또 당첨 데이터와 만나다   
+1. 라이브러리 추가: 먼저, 프로젝트의 build.gradle 파일에 Retrofit 라이브러리와 데이터 변환을 위한 Gson 컨버터 라이브러리를 추가하세요.
+```kotlin
+dependencies {
+    // Retrofit
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    // Gson Converter
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+```
+2. **Retrofit 인스턴스 생성:** Retrofit Builder를 사용하여 Retrofit Instance를 생성하고, BaseUrl과 Data Converter를 설정
+```kotlin
+import okhttp3.OkHttpClient
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
+
+object RetrofitInstance {
+    private const val BASE_URL = "https://www.dhlottery.co.kr/"
+    private val retrofit by lazy {
+        Retrofit.Builder()
+            .baseUrl(BASE_URL)
+            .client(OkHttpClient.Builder().build())
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+    }
+
+    val api: LottoApi by lazy { retrofit.create(LottoApi::class.java) }
+}
+```
+3. API 인터페이스 정의: 서비스의 각 HTTP 엔드 포인트에 대해 메서드를 정의하는 인터페이스를 생성
+```kotlin
+import retrofit2.http.GET
+import retrofit2.http.Query
+
+interface LottoApi {
+    @GET("common.do")
+    suspend fun getLottoNumber(
+        @Query("drwNo") num: Int,    // 회차 정보
+        @Query("method") method: String = "getLottoNumber"
+    ): LottoModel
+}
+```
+
+4. API 호출:  인터페이스를 통해 API 호출을 수행하고, 응답을 처리
+```kotlin
+CoroutineScope(Dispatchers.IO).launch {
+    val data = RetrofitInstance.api.getLottoNumber(num = 1010)
+}
+```
+
+5. 인터넷 권한 추가: AndroidManifest.xml 파일에 인터넷 권한을 추가해야 네트워크 요청을 할 수 있습니다.
+```kotlin
+<uses-permission android:name="android.permission.INTERNET" />
+```
+
+6. 로컬 테스트 서버나 아직 **HTTPS**를 지원하지 않는 백엔드 서버와의 통신이 필요한 경우 **`usesCleartextTraffic`** 속성 추가가 필요한 경우도 있음
+```kotlin
+android:usesCleartextTraffic="true"
+```
+
+## 05. 실습 A-2: 로또 번호 서비스 앱 완성하기
+
+로또 앱 UI 구성하기
+![image](https://github.com/chihyeonwon/Random_Lotto/assets/58906858/b5f16e9c-6280-4db6-a60e-904bd1c7491d)
+
+Open API 연동을 통한 실제 로또 번호 조회    
+
+데이터 표시 및 사용자 인터랙션 구현    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
