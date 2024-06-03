@@ -436,7 +436,7 @@ inc() <- increase 회차가 늘어남 +1
 로또 회차에 따른 데이터를 가져온다음 fetchLottoData() 데이터 가져오기에 성공하면 updateUI ui를 업데이트한다.
 ```
 ## 결과물의 기술
-![image](https://github.com/chihyeonwon/Random_Lotto/assets/58906858/dfa2bcca-008c-42eb-bfcf-1d6fc37bbef1)
+![2024-06-03 19;37;54](https://github.com/chihyeonwon/Random_Lotto/assets/58906858/eace38de-a40a-4b4c-bb34-e798a192df3c)
 ```
 로또 회차를 검색창에 입력하면 해당 로또 회차의 당첨 결과, 날짜, 당첨 번호 6개 (5+ 보너스1개)와 1등 총 당첨 정보와 금액을
 서버에서 받아와서 보여준다. 
