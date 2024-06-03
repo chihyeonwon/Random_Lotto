@@ -301,11 +301,50 @@ Open API 연동을 통한 실제 로또 번호 조회
 
 데이터 표시 및 사용자 인터랙션 구현    
 
+## 전보다 새롭게 알게된 내용
+```
+클래스와 유사한 object 클래스는 앱 프로젝트에서 1개만 생성 가능하다. (싱글톤 패턴의 오브젝트)
 
+Retrofit 객체를 빌더타입으로 생성한다.
+빌더에는 base url, .client (로그를 찍어서 다양한 로그를 사용 가능)
+.gson 컨버터가 json을 gson으로 변경해준다.
 
+https://www.dhlottery.co.kr/common.do?method=getLottoNumber&drwNo=1010
 
+LottoApi 에서 엔드포인트 common.do에서 Get으로 가져올 것인데 method가 getLottoNumber 이면서 drwNo는 (num으로 개명) 1010 인것을 가져온다. 
 
+api 호출 : MainActivity에서 random으로 로또번호를 generate 하는 함수를 지우고 생성한 RetrofitInstance의 api를 호출해서 getLottoNumber의 매개변수로 회차번호인
+num = 1111을 넣어준다. 매개변수가 두 개 필요한데 뒤에 method는 getLottoNumber쿼리 어노테이션으로 주어져있다.
 
+앱이 죽었는데 죽은 이유를 알고 싶으면 검색창에 fat을 입력한다. fatal의 줄임말
+```
+![image](https://github.com/chihyeonwon/Random_Lotto/assets/58906858/e6f3c576-d2af-49ec-8222-855848f1df16)
+![image](https://github.com/chihyeonwon/Random_Lotto/assets/58906858/e0565ce8-a88e-45be-a3dc-91f441ef0301)
+```
+Logcat에서 앱이 죽었을 때 죽은 이유만 따로 모아서 보고 싶었는데 fat 키워드를 사용하면 되었다.
+
+SecurityException: Permission denied (missing INTERNET permission?)
+인터넷 권한을 추가하지 않으면 안된다. -> androidManifest 파일에 인터넷 권한을 추가한다.
+
+회차번호 num이 1111을 받아왔을 때 로그캣화면이다.
+```
+![image](https://github.com/chihyeonwon/Random_Lotto/assets/58906858/3b0b7b0d-dc27-4b15-864d-64afa1c68e65)
+![image](https://github.com/chihyeonwon/Random_Lotto/assets/58906858/38467bd9-05f7-4308-91cf-fad72047f05f)
+```
+만약 회차번호 num 이 개발일 기준 최신 로또회차는 1122회인데 그보다 큰 값인 1130을 넣어주면 데이터가 null 이 들어온다.
+(당연히 미래 회차번호를 넣어서 당첨 번호 데이터가 왔으면 이미 부자가 되었겠지만..)
+이럴때는 예외처리를 해줘야한다. 항상 데이터를 받아올 때는 이 데이터가 뜻하는 것과 null이 되는 상황을 예외처리해야 한다를 생각한다.
+```
+![image](https://github.com/chihyeonwon/Random_Lotto/assets/58906858/35b85e4b-181b-4e00-82a9-d9952c0822ec)
+![image](https://github.com/chihyeonwon/Random_Lotto/assets/58906858/98695a42-c7c9-4794-a5a2-a00fe4c5f618)
+```
+만약 엔드포인트의 주소에 https:// security가 적용되어있지 않고 http://로 시작한다면 암호화 처리가 되지 않아 시큐리티 정책에 어긋난다는
+not permitted by network security policy 오류가 발생한다.
+
+이를 해결하려면 즉 http의 데이터도 받고자 한다면(로컬 테스트 서버나 아직 HTTPS를 지원하지 않는 백엔드 서버와의 통신이 필요한 경우)
+usesCleartextTraffic ="true"속성 추가가 필요한 경우도 있음 (androidmanifest의 application 속성에 넣어줌)
+하지만 안쓰면 좋다.(보안에 위협)
+```
 
 
 
