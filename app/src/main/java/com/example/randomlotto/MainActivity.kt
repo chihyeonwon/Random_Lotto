@@ -2,9 +2,13 @@ package com.example.randomlotto
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.TextView
-import kotlin.random.Random
+import com.example.randomlotto.api.RetrofitInstance
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,27 +26,23 @@ class MainActivity : AppCompatActivity() {
 
         randomButton.setOnClickListener {
             // 랜덤한 번호 7개를 받아와서 오름차순으로 정렬한다.
-            val lottoNumbers = generateLottoNumbers().sorted()
+            CoroutineScope(Dispatchers.IO).launch {
+                val data = RetrofitInstance.api.getLottoNumber(num = 1103)
+                Log.d("getLottoNumber","data: ${data}")
+            }
 
-            // 각각의 View 연결
-            numberOne.text = lottoNumbers[0].toString()
-            numberTwo.text = lottoNumbers[1].toString()
-            numberThree.text = lottoNumbers[2].toString()
-            numberFour.text = lottoNumbers[3].toString()
-            numberFive.text = lottoNumbers[4].toString()
-            numberSix.text = lottoNumbers[5].toString()
-            numberBonus.text = lottoNumbers[6].toString()
-            //val lottoNumbersView = listOf(numberOne, numberTwo, numberThree, numberFour, numberFive, numberSix, numberBonus)
-            //lottoNumbers.mapIndexed { index, number -> lottoNumbersView[index].text = number.toString() }
+
+//            // 각각의 View 연결
+//            numberOne.text = lottoNumbers[0].toString()
+//            numberTwo.text = lottoNumbers[1].toString()
+//            numberThree.text = lottoNumbers[2].toString()
+//            numberFour.text = lottoNumbers[3].toString()
+//            numberFive.text = lottoNumbers[4].toString()
+//            numberSix.text = lottoNumbers[5].toString()
+//            numberBonus.text = lottoNumbers[6].toString()
+//            //val lottoNumbersView = listOf(numberOne, numberTwo, numberThree, numberFour, numberFive, numberSix, numberBonus)
+//            //lottoNumbers.mapIndexed { index, number -> lottoNumbersView[index].text = number.toString() }
         }
     }
 
-    private fun generateLottoNumbers(): Set<Int> {
-        val numbers = mutableSetOf<Int>()
-        while (numbers.size < 7) {
-            val randomNumber = Random.nextInt(1, 46) // 1부터 45까지의 숫자 중 랜덤 선택
-            numbers.add(randomNumber)
-        }
-        return numbers
-    }
 }
