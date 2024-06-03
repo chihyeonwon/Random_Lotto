@@ -14,5 +14,5 @@ object RetrofitInstance {
             .build()
     }
 
-    val api: LottoApi by lazy { retrofit.create(LottoApi::class.java) }
+    val service: LottoService by lazy { retrofit.create(LottoService::class.java) }
 }
