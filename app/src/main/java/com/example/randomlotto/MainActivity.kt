@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
         randomButton.setOnClickListener {
             // 랜덤한 번호 7개를 받아와서 오름차순으로 정렬한다.
             CoroutineScope(Dispatchers.IO).launch {
-                val data = RetrofitInstance.api.getLottoNumber(num = 1103)
+                val data = RetrofitInstance.service.getLottoNumber(num = 1103)
                 Log.d("getLottoNumber","data: ${data}")
             }
 
