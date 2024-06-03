@@ -6,7 +6,8 @@
 
   
 ## 결과물 레이아웃 
-![image](https://github.com/chihyeonwon/Random_Lotto/assets/58906858/cfb4ad55-f1bf-4f72-8060-5d6bc8e92a7e)
+![2024-06-03 19;37;54](https://github.com/chihyeonwon/Random_Lotto/assets/58906858/3bd50d39-75db-44c7-bc66-d3abd8d611ab)
+
 
 - 배경 색깔 : 회색 (**#EEF3F6)**
 - 동그라미 당첨 번호 6개 , 보너스 번호 1개: TextView(size : 20dp, bold)+ color background
