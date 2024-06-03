@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.randomrotto"
+    namespace = "com.example.randomlotto"
     compileSdk = 34
 
     defaultConfig {

@@ -1,4 +1,4 @@
-package com.example.randomrotto.data
+package com.example.randomlotto.data
 
 
 import com.google.gson.annotations.SerializedName

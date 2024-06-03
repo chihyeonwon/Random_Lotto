@@ -1,4 +1,4 @@
-package com.example.randomrotto
+package com.example.randomlotto
 
 import org.junit.Test
 

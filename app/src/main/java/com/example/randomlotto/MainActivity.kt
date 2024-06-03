@@ -1,4 +1,4 @@
-package com.example.randomrotto
+package com.example.randomlotto
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
