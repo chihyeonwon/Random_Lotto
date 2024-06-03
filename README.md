@@ -345,14 +345,99 @@ not permitted by network security policy 오류가 발생한다.
 usesCleartextTraffic ="true"속성 추가가 필요한 경우도 있음 (androidmanifest의 application 속성에 넣어줌)
 하지만 안쓰면 좋다.(보안에 위협)
 ```
+![image](https://github.com/chihyeonwon/Random_Lotto/assets/58906858/94a61767-f063-4917-962c-c3af493c9656)
+![image](https://github.com/chihyeonwon/Random_Lotto/assets/58906858/0d0d747c-0667-47a1-ae8a-cb22215c40c8)
+```
+gravity 속성은 위치에 대한 정렬, layout_gravity 속성은 뷰 안에 있는 텍스트의 위치
 
+디자인탭에서 색깔을 지정할 때 스포이드 기능이 포함되어 있다.
 
+디자인탭의 searchView 를 활용해서 쉽게 검색창을 구현할 수 있다.
 
+단 searchView 안의 돋보기 아이콘을 삭제하려면 코드에서 강제로 삭제해주는 코드를 사용해야한다.
+이런 번거로움을 해소하려고 EditText를 쓸 수가 있다. searchView와 유사
 
+ImageView의 백그라운드 회색 동그라미, src에는 동그라미 안에 들어가는 이미지
 
+src 이미지의 크기를 동그라미 안에서 조절하려고 한다. -> scale Type 조절한다.
+```
+![image](https://github.com/chihyeonwon/Random_Lotto/assets/58906858/21d4c8fd-59de-4ace-8026-f8d0021b68d8)
+```
+클래스명을 바꾸려고 할 때 클래스위에서 rename하면 파일명도 같이 다 바뀐다.
+변수명도 변수 위에서 rename하면 이 변수를 사용하는 곳에서 다 바뀐다. <- 기존에 replace로 찾아서 바꾸는 것보다 편리하다.
+```
+![image](https://github.com/chihyeonwon/Random_Lotto/assets/58906858/f7b08f25-b1f3-46b2-bbca-d8e5b6562d15)
+```
+데이터모델에서 String의 빈 값을 뜻하는 "-"을 EMPTY_STRING 으로 상수화하여 표현했다.(코드의 가시성)
+```
+![image](https://github.com/chihyeonwon/Random_Lotto/assets/58906858/c0082718-8e14-4b32-a21b-6e3907396e60)
+```
+json에서 데이터를 가져올 때 키값의 string이 이상할 때가 있다.
+이 경우에 데이터 변수명을 알아보기 쉬운 변수명으로 바꾸면서 값을 초기화한다.
+```
+![image](https://github.com/chihyeonwon/Random_Lotto/assets/58906858/1eb1fce5-3a7a-45dc-9a4d-606d1b90bce2)
+```
+binding을 쓰면 findViewById를 사용하지 않고 레이아웃의 요소를 아이디로 찾아서 쓸 수 있다. (편리성을 위해서)
+메인액티비티에 로드한다. setContentView(binding.root)
+```
+![image](https://github.com/chihyeonwon/Random_Lotto/assets/58906858/afbe8656-947f-4bde-8143-92be6d74b9a7)
+```
+with(binding) { } binding.1, binding.2, binding3이라면 with(binding) { 1.~  2.~ 3. ~ } binding 을 생략할 수 있다.
+```
+## 컨트롤러
+![image](https://github.com/chihyeonwon/Random_Lotto/assets/58906858/c68d4b35-795a-44b9-93c3-cd1afab853ee)
+```
+컨트롤러는 Retrofit 인스턴스를 가져와서 서버에 있는 데이터값을 받아온다.
+서버에서 정보를 받아올 때는 시간이 걸릴 수 있다. 이것을 비동기 적으로 처리하기 위해서 코루틴을 사용한다.
+서버에 요청을 보내놓고 다른 것을 할 수 있기에 효율적이다.
 
+요청에 대한 결과가 왔을 때 그 때 다시 화면에 뿌려준다.
 
+runCatching <- 앱이 죽었을 때를 처리하기 위해 넣는 안전한 보호 코드
 
+Dispatcher.IO 오래 걸리는 비동기적 서비스에서 로또 번호를 실제로 받아오는 getLottoNumber 함수를 실행
 
+onSuccess 성공한다면 로또 데이터를 toLottoData() 보기좋은 형식으로 변환한 후에 getLottoNumber의 결과로 받아온다.
+```
+## strings.xml
+![image](https://github.com/chihyeonwon/Random_Lotto/assets/58906858/eee24540-f32b-4b77-83c2-800cd9f19030)
+```
+<b></b>는 사이의 문자를 볼드체로 표현한다.
+<big></big>은 글씨를 크게 적는다.
 
+%1$s <- 숫자 문자열이 들어가면 문자열에 직접 적용을 해준다.
+```
+![image](https://github.com/chihyeonwon/Random_Lotto/assets/58906858/34e76a10-5263-4a39-a302-6ef0b7dbee1a)
+![image](https://github.com/chihyeonwon/Random_Lotto/assets/58906858/460afbc8-ca8b-49d1-b35b-d5cb5c66a508)
+```
+html 태그가 적용된 텍스트가 그대로 적용되어 출력된다.
 
+mapIndexed <- 리스트의 인덱스를 사용할 수 있는 메서드 map은 못씀
+당첨 번호 6개를 넣어놨고 번호가 비어있지 않으면 번호를 넣는다.
+```
+![image](https://github.com/chihyeonwon/Random_Lotto/assets/58906858/e47600d2-3f0c-4a49-be00-4203afc63bdf)
+```
+전체 금액을 0을 제외하고 몇 억원인지 변환하기 위해 to Billion 함수를 사용한다.
+데이토포맷을 함수명으로 사용가능하다.
+
+abcd.tomillion() 이렇게 있을 때 abcd -> String 이므로 String.tomillion() 으로 함수를 정의할 수 있고
+함수 안에서 this는 String 즉 abcd를 의미하게 된다.
+```
+![image](https://github.com/chihyeonwon/Random_Lotto/assets/58906858/16dd3923-d2ee-41c2-93e8-23b59f8fb1b1)
+![image](https://github.com/chihyeonwon/Random_Lotto/assets/58906858/b2fa8f82-3eef-4091-85e5-6882d1a9bf69)
+```
+@color/컬러명 <- 자주쓰이는 컬러를 colors.xml에 작성하여 사용할 수 있다.
+```
+![image](https://github.com/chihyeonwon/Random_Lotto/assets/58906858/d87e925d-0106-48b3-8cfe-462d7f56718a)
+```
+dec() <- decrease 회차.toInt()해서 회차가 줄어듬 -1
+inc() <- increase 회차가 늘어남 +1
+
+로또 회차에 따른 데이터를 가져온다음 fetchLottoData() 데이터 가져오기에 성공하면 updateUI ui를 업데이트한다.
+```
+## 결과물의 기술
+![image](https://github.com/chihyeonwon/Random_Lotto/assets/58906858/dfa2bcca-008c-42eb-bfcf-1d6fc37bbef1)
+```
+로또 회차를 검색창에 입력하면 해당 로또 회차의 당첨 결과, 날짜, 당첨 번호 6개 (5+ 보너스1개)와 1등 총 당첨 정보와 금액을
+서버에서 받아와서 보여준다. 
+```
