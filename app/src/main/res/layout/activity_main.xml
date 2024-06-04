@@ -5,155 +5,318 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#EEF3F6"
+    android:paddingHorizontal="30dp"
     tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="36dp"
+        android:layout_marginTop="60dp"
+        android:background="@drawable/lotto_banner_background"
+        android:backgroundTint="@color/accent"
+        android:gravity="center"
+        android:paddingHorizontal="15dp"
+        android:text="로또 6/45"
+        android:textColor="#FFFFFF"
+        android:textSize="16dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/search_view"
+        android:layout_width="0dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="124dp"
+        android:layout_marginEnd="15dp"
+        android:background="#E4EBF0"
+        android:hint="회차 입력"
+        android:inputType="numberDecimal"
+        android:paddingHorizontal="20dp"
+        android:textSize="12dp"
+        app:layout_constraintEnd_toStartOf="@id/search_button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/search_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/circle_background"
+        android:src="@drawable/ic_search"
+        app:layout_constraintBottom_toBottomOf="@id/search_view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/search_view" />
+
+    <TextView
+        android:id="@+id/win_result_text_view"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="37dp"
+        android:gravity="center_horizontal"
+        android:textSize="31dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/search_view"
+        tools:text="23회 당첨 결과" />
+
+    <TextView
+        android:id="@+id/date_view"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:gravity="center_horizontal"
+        android:text="TextView"
+        android:textColor="#6A7177"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/win_result_text_view"
+        tools:layout_editor_absoluteY="166dp"
+        tools:text="2023-12-23" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/win_numbers_layout"
-        android:layout_width="325dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="249dp"
-        android:layout_marginBottom="23dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
         android:background="@drawable/rectangle_background"
-        android:backgroundTint="#FBFBFB"
-        app:layout_constraintBottom_toTopOf="@+id/random_button"
+        android:backgroundTint="#FFFFFF"
+        android:paddingHorizontal="27dp"
+        android:paddingVertical="26dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@id/date_view">
 
         <TextView
             android:id="@+id/win_number_text"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="27dp"
-            android:layout_marginBottom="18dp"
-            android:text="당첨 번호"
-            android:textColor="#3F51B5"
-            android:textSize="20sp"
+            android:layout_marginTop="2dp"
+            android:text="당첨번호"
+            android:textColor="#5F666B"
+            android:textSize="20dp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/win_numbers_one"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_chainStyle="packed" />
-
-        <LinearLayout
-            android:id="@+id/win_numbers_one"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="9dp"
-            android:orientation="horizontal"
-            app:layout_constraintBottom_toTopOf="@+id/win_numbers_two"
-            app:layout_constraintStart_toStartOf="@+id/win_numbers_two"
-            app:layout_constraintTop_toBottomOf="@+id/win_number_text">
-
-            <TextView
-                android:id="@+id/number_one"
-                android:layout_width="53dp"
-                android:layout_height="53dp"
-                android:layout_margin="5dp"
-                android:layout_weight="1"
-                android:background="@drawable/number_background_blue"
-                android:gravity="center"
-                android:text="1"
-                android:textSize="26sp" />
-
-            <TextView
-                android:id="@+id/number_two"
-                android:layout_width="53dp"
-                android:layout_height="53dp"
-                android:layout_margin="5dp"
-                android:layout_weight="1"
-                android:background="@drawable/number_background_blue"
-                android:gravity="center"
-                android:text="2"
-                android:textSize="26sp" />
-
-            <TextView
-                android:id="@+id/number_three"
-                android:layout_width="53dp"
-                android:layout_height="53dp"
-                android:layout_margin="5dp"
-                android:layout_weight="1"
-                android:background="@drawable/number_background_red"
-                android:gravity="center"
-                android:text="3"
-                android:textSize="26sp" />
-
-            <TextView
-                android:id="@+id/number_four"
-                android:layout_width="53dp"
-                android:layout_height="53dp"
-                android:layout_margin="5dp"
-                android:layout_weight="1"
-                android:background="@drawable/number_background_red"
-                android:gravity="center"
-                android:text="4"
-                android:textSize="26sp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/win_numbers_two"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="15dp"
-            android:orientation="horizontal"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/win_numbers_one">
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/arrow_left"
+            android:layout_width="20dp"
+            android:layout_height="14dp"
+            android:layout_gravity="center"
+            android:layout_margin="3dp"
+            android:background="@drawable/ripple_background"
+            android:gravity="center"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_arrow_left"
+            app:layout_constraintBottom_toBottomOf="@id/number_layout_2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/number_layout_1" />
+
+
+        <ImageView
+            android:id="@+id/arrow_right"
+            android:layout_width="20dp"
+            android:layout_height="14dp"
+            android:layout_gravity="center"
+            android:layout_margin="3dp"
+            android:background="@drawable/ripple_background"
+            android:gravity="center"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_arrow_right"
+            app:layout_constraintBottom_toBottomOf="@id/number_layout_2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/number_layout_1" />
+
+        <LinearLayout
+            android:id="@+id/number_layout_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="22dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/win_number_text">
 
             <TextView
-                android:id="@+id/number_five"
+                android:id="@+id/number_1_text"
                 android:layout_width="53dp"
                 android:layout_height="53dp"
-                android:layout_margin="5dp"
+                android:layout_margin="3dp"
                 android:layout_weight="1"
-                android:background="@drawable/number_background_gray"
+                android:background="@drawable/number_background_blue"
                 android:gravity="center"
-                android:text="1"
-                android:textSize="26sp" />
+                android:includeFontPadding="false"
+                android:text="12"
+                android:textColor="#FFFFFF"
+                android:textSize="27dp"
+                android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/number_six"
+                android:id="@+id/number_2_text"
                 android:layout_width="53dp"
                 android:layout_height="53dp"
-                android:layout_margin="5dp"
+                android:layout_margin="3dp"
                 android:layout_weight="1"
+                android:background="@drawable/number_background_blue"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:text="14"
+                android:textColor="#FFFFFF"
+                android:textSize="27dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/number_3_text"
+                android:layout_width="53dp"
+                android:layout_height="53dp"
+                android:layout_margin="3dp"
+                android:layout_weight="1"
+                android:background="@drawable/number_background_red"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:text="29"
+                android:textColor="#FFFFFF"
+                android:textSize="27dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/number_4_text"
+                android:layout_width="53dp"
+                android:layout_height="53dp"
+                android:layout_margin="3dp"
+                android:layout_weight="1"
+                android:background="@drawable/number_background_red"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:text="37"
+                android:textColor="#FFFFFF"
+                android:textSize="27dp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <!-- 두 번째 가로 LinearLayout -->
+        <LinearLayout
+            android:id="@+id/number_layout_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/number_layout_1">
+
+            <TextView
+                android:id="@+id/number_5_text"
+                android:layout_width="53dp"
+                android:layout_height="53dp"
+                android:layout_margin="3dp"
                 android:background="@drawable/number_background_gray"
                 android:gravity="center"
-                android:text="2"
-                android:textSize="26sp" />
+                android:includeFontPadding="false"
+                android:text="40"
+                android:textColor="#FFFFFF"
+                android:textSize="27dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/number_6_text"
+                android:layout_width="53dp"
+                android:layout_height="53dp"
+                android:layout_margin="3dp"
+                android:background="@drawable/number_background_gray"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:text="44"
+                android:textColor="#FFFFFF"
+                android:textSize="27dp"
+                android:textStyle="bold" />
 
             <ImageView
-                android:id="@+id/ic_plus"
+                android:id="@+id/plus_view"
                 android:layout_width="53dp"
-                android:layout_height="53dp"
-                android:layout_margin="5dp"
-                android:layout_weight="1"
-                android:scaleType="center"
-                app:srcCompat="@drawable/ic_plus" />
+                android:layout_height="15dp"
+                android:layout_gravity="center"
+                android:layout_margin="3dp"
+                android:includeFontPadding="false"
+                android:gravity="center"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_plus"
+                android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/number_bonus"
+                android:id="@+id/number_bonus_text"
                 android:layout_width="53dp"
                 android:layout_height="53dp"
-                android:layout_margin="5dp"
-                android:layout_weight="1"
+                android:layout_margin="3dp"
+                android:includeFontPadding="false"
                 android:background="@drawable/number_background_green"
                 android:gravity="center"
-                android:text="4"
-                android:textSize="26sp" />
+                android:text="2"
+                android:textColor="#FFFFFF"
+                android:textSize="27dp"
+                android:textStyle="bold" />
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <Button
-        android:id="@+id/random_button"
-        android:layout_width="wrap_content"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="177dp"
-        android:text="Random Lotto"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="28dp"
+        android:background="@drawable/rectangle_background"
+        android:paddingHorizontal="27dp"
+        android:paddingVertical="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/win_numbers_layout" />
+        app:layout_constraintTop_toBottomOf="@id/win_numbers_layout">
+
+        <ImageView
+            android:id="@+id/icon_star"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:src="@drawable/ic_inside_star"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/win_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="1등 총 당첨 정보"
+            android:textColor="@color/accent"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/icon_star"
+            app:layout_constraintStart_toEndOf="@id/icon_star"
+            app:layout_constraintTop_toTopOf="@id/icon_star" />
+
+        <TextView
+            android:id="@+id/win_amount_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:gravity="center_horizontal"
+            android:text="@string/win_prize"
+            android:textSize="16dp"
+            android:textColor="#3A3E41"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/win_text" />
+
+        <TextView
+            android:id="@+id/win_1_amount_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:gravity="center_horizontal"
+            android:text="@string/win_prize_1"
+            android:textColor="#6A7177"
+            android:textSize="14dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/win_amount_text" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
