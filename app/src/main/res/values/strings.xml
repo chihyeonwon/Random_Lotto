@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">RandomLotto</string>
+    <string name="winning_result"><b>%1$s회</b> 당첨 결과</string>
+    <string name="win_prize">약 <big><big><b>%1$s</b></big></big>억 원</string>
+    <string name="win_prize_1">(1게임 당 당첨 금액 약 <b>%1$s</b>억원)</string>
 </resources>
