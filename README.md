@@ -1,3 +1,5 @@
+## 구글 플레이스토어에서 당번을 다운로드 하세요 !
+[당번 - 로또 당첨 번호 앱 스토어](https://play.google.com/store/apps/details?id=com.wonchihyeon.dangbun)
 ⚛🔅**실습 목표 :** 빨간 테두리 박스 안의 UI 구성 + Button 
 - 웹서버와의 통신 방식인 REST API의 기본 개념과 원리를 이해할 수 있다.     
 - Retrofit을 사용하여 REST API를 호출하고, Gson을 통해 JSON 데이터를 처리하는 방법을 알 수 있다.    
